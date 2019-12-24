@@ -3,3 +3,4 @@
   group: decorations.easte.rs
   kind: Light
   role: /opt/ansible/roles/light
+  reconcilePeriod: 30s

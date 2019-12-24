@@ -4,4 +4,5 @@ metadata:
   name: example-light
 spec:
   # Add fields here
-  size: 3
+  entity: "light.example"
+  state: "on"

@@ -1,2 +1,26 @@
 ---
 # tasks file for light
+- name: Validate state param
+  fail:
+    msg: "state must be 'on' or 'off'"
+  when: state is not defined or (state != "on" and state != "off")
+
+- name: Get current state
+  uri:
+    url: "{{ hass_base_url }}/api/states/{{ entity }}"
+    method: GET
+    headers:
+      authorization: "Bearer {{ hass_access_token }}"
+  register: current_state
+
+- name: Set state
+  uri:
+    url: "{{ hass_base_url }}/api/services/homeassistant/turn_{{ state }}"
+    method: POST
+    headers:
+      authorization: "Bearer {{ hass_access_token }}"
+    body:
+      entity_id: "{{ entity }}"
+    body_format: json
+  changed_when: true
+  when: current_state.json.state != state

@@ -46,6 +46,16 @@ spec:
               value: "christmas-decoration-operator"
             - name: ANSIBLE_GATHERING
               value: explicit
+            - name: HASS_BASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: christmas-decoration-operator-hass
+                  key: baseURL
+            - name: HASS_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: christmas-decoration-operator-hass
+                  key: accessToken
       volumes:
         - name: runner
           emptyDir: {}

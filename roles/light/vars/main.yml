@@ -1,2 +1,4 @@
 ---
 # vars file for light
+hass_base_url: "{{ lookup('env','HASS_BASE_URL') }}"
+hass_access_token: "{{ lookup('env','HASS_ACCESS_TOKEN') }}"
