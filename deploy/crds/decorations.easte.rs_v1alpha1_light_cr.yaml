@@ -1,0 +1,7 @@
+apiVersion: decorations.easte.rs/v1alpha1
+kind: Light
+metadata:
+  name: example-light
+spec:
+  # Add fields here
+  size: 3

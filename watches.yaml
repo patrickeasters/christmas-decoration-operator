@@ -1,0 +1,5 @@
+---
+- version: v1alpha1
+  group: decorations.easte.rs
+  kind: Light
+  role: /opt/ansible/roles/light
